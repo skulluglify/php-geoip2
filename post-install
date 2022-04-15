@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+[ -d assets ] || mkdir assets
+
+[ ! -f sources.lst ] && echo -en "\x1b[1;31;40m sources.lst not found! \x1b[0m\n" && exit 1
+
+while IFS= read -r line; do
+
+  file=$(echo $line | awk '{print $2}')
+  echo -en "\x1b[1;33;40m download $file ... \x1b[0m\n"
+  [ ! -f assets\/$file ] && wget -c $(echo $line | awk '{print $1}') -O assets\/$file &>/dev/null
+
+done <sources.lst
+
+repo=maxmind/GeoIP2-php
+phar=$(curl -s https://api.github.com/repos/$repo/releases/latest | grep -i browser_download_url | grep -Eio https\:\/\/.+\?\[a-zA-Z0-9])
+
+echo -en "\x1b[1;33;40m download geoip2.phar ... \x1b[0m\n"
+
+[ ! -f assets\/geoip2.phar ] && wget -c $phar -O assets\/geoip2.phar &>/dev/null

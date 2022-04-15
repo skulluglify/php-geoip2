@@ -1,0 +1,45 @@
+GeoIp2\Model\Country Object
+
+continent code
+continent geoname_id
+continent names
+
+country geoname_id
+country iso_code
+country names
+
+registered_country geoname_id
+registered_country iso_code
+registered_country names
+
+traits ip_address
+traits prefix_len
+
+GeoIp2\Model\City Object
+
+continent code
+continent geoname_id
+continent names
+
+country geoname_id
+country iso_code
+country names
+
+location accuracy_radius
+location latitude
+location longitude
+location time_zone
+
+registered_country geoname_id
+registered_country iso_code
+registered_country names
+
+traits ip_address
+traits prefix_len
+
+GeoIp2\Model\Asn Object
+
+autonomous_system_number
+autonomous_system_organization
+ip_address
+prefix_len
